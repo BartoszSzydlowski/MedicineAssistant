@@ -38,7 +38,7 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			return medicine.Id;
 		}
 
-		public async Task UpdateMedicineAsync(Medicine medicine) // przy update
+		public async Task UpdateMedicineAsync(Medicine medicine)
 		{
 			_context.Update(medicine);
 			await _context.SaveChangesAsync();
@@ -59,11 +59,11 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			return _context.Medicines.Where(p => p.Name == name);
 		}
 
-		public IQueryable<Medicine> GetMedicineByTimeSpan(TimeSpan timeSpan)
-		{
-			//return _context.Medicines.Where(p => p.UseDate >= (DateTime.UtcNow + timeSpan));
-			return null;
-		}
+		//public IQueryable<Medicine> GetMedicineByTimeSpan(TimeSpan timeSpan)
+		//{
+		//	//return _context.Medicines.Where(p => p.UseDate >= (DateTime.UtcNow + timeSpan));
+		//	return null;
+		//}
 
 		public async Task RemoveMedicineAsync(int medicineId)
 		{

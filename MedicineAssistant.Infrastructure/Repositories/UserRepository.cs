@@ -51,30 +51,6 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			return null;
 		}
 
-		//public async Task<string> CreateNormalUserAsync(ApplicationUser user)
-		//{
-		//	if (user != null)
-		//	{
-		//		await _userManager.CreateAsync(user);
-		//		await _userManager.AddToRoleAsync(user, "User");
-		//		await _context.SaveChangesAsync();
-		//		return user.Id;
-		//	}
-		//	return null;
-		//}
-
-		//public async Task<string> CreateAdminUserAsync(ApplicationUser user)
-		//{
-		//	if (user != null)
-		//	{
-		//		await _userManager.CreateAsync(user);
-		//		await _userManager.AddToRoleAsync(user, "Admin");
-		//		await _context.SaveChangesAsync();
-		//		return user.Id;
-		//	}
-		//	return null;
-		//}
-
 		public async Task DeleteUserAsync(string id)
 		{
 			var user = await _userManager.FindByIdAsync(id);

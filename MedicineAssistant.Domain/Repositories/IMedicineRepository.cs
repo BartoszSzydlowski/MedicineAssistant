@@ -12,7 +12,7 @@ namespace MedicineAssistant.Domain.Repositories
 		Task<string> AddMedicineToUserAsync(string userId, int medicineId);
 		IQueryable<Medicine> GetAllMedicines();
 		Task<Medicine> GetMedicineByIdAsync(int id);
-		IQueryable<Medicine> GetMedicineByTimeSpan(TimeSpan timeSpan);
+		//IQueryable<Medicine> GetMedicineByTimeSpan(TimeSpan timeSpan);
 		IQueryable<Medicine> GetMedicineByName(string name);
 		Task UpdateMedicineAsync(Medicine medicine);
 		Task RemoveMedicineAsync(int medicineId);

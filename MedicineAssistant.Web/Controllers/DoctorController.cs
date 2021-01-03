@@ -18,19 +18,16 @@ namespace MedicineAssistant.Web.Controllers
 	public class DoctorController : ControllerBase
 	{
 		private readonly IDoctorService _doctorService;
-		//private readonly IAccountService _accountService;
 
-		public DoctorController(IDoctorService service
-			//, IAccountService accountService
-			)
+		public DoctorController(IDoctorService service)
 		{
 			_doctorService = service;
-			//_accountService = accountService;
 		}
 
 		[HttpGet("Find/Doctor")]
-		public async Task<IActionResult> Get(string userId)
+		public async Task<IActionResult> Get()
 		{
+			var userId = JwtTokenInfo.GetUserIdFromToken();
 			var doctors = await _doctorService.GetAllDoctorsAsync(userId);
 			return new JsonResult(doctors);
 		}

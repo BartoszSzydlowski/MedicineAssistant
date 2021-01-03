@@ -23,9 +23,7 @@ namespace MedicineAssistant.Application.Services
 		private readonly IUserRepository _userRepo;
 		private readonly IMapper _mapper;
 
-		public UserService(IUserRepository userRepo,
-			IMapper mapper
-			)
+		public UserService(IUserRepository userRepo, IMapper mapper)
 		{
 			_userRepo = userRepo;
 			_mapper = mapper;

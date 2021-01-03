@@ -46,12 +46,12 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(medicines);
 		}
 
-		[HttpGet("Find/Mecicine/TimeSpan/{timeSpan}")]
-		public async Task<IActionResult> Get(TimeSpan timeSpan)
-		{
-			var medicines = await _service.GetMedicineByTimeSpanAsync(timeSpan);
-			return new JsonResult(medicines);
-		}
+		//[HttpGet("Find/Mecicine/TimeSpan/{timeSpan}")]
+		//public async Task<IActionResult> Get(TimeSpan timeSpan)
+		//{
+		//	var medicines = await _service.GetMedicineByTimeSpanAsync(timeSpan);
+		//	return new JsonResult(medicines);
+		//}
 
 		[HttpPost("Create")]
 		[Authorize(Policy = "AdminRole")]

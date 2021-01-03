@@ -62,13 +62,13 @@ namespace MedicineAssistant.Application.Services
 			return item;
 		}
 
-		public async Task<List<GetMedicineDto>> GetMedicineByTimeSpanAsync(TimeSpan timeSpan)
-		{
-			var item = await _medicineRepo.GetMedicineByTimeSpan(timeSpan)
-				.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
-				.ToListAsync();
-			return item;
-		}
+		//public async Task<List<GetMedicineDto>> GetMedicineByTimeSpanAsync(TimeSpan timeSpan)
+		//{
+		//	var item = await _medicineRepo.GetMedicineByTimeSpan(timeSpan)
+		//		.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
+		//		.ToListAsync();
+		//	return item;
+		//}
 
 		public async Task UpdateMedicineAsync(UpdateMedicineDto dto)
 		{

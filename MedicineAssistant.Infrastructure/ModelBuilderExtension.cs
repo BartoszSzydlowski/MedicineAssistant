@@ -54,14 +54,6 @@ namespace MedicineAssistant.Infrastructure
 					UserId = defaultUserId
 				}
 			);
-
-			//builder.Entity<IdentityUserRole<string>>().HasData(
-			//	new IdentityUserRole<string>
-			//	{
-			//		RoleId = defaultUserId,
-			//		UserId = userId
-			//	}
-			//);
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace MedicineAssistant.Application.Interfaces
 		Task<List<GetMedicineDto>> GetAllMedicinesAsync();
 		Task<GetMedicineDto> GetMedicineByIdAsync(int id);
 		Task<List<GetMedicineDto>> GetMedicineByNameAsync(string name);
-		Task<List<GetMedicineDto>> GetMedicineByTimeSpanAsync(TimeSpan timeSpan);
+		//Task<List<GetMedicineDto>> GetMedicineByTimeSpanAsync(TimeSpan timeSpan);
 		Task UpdateMedicineAsync(UpdateMedicineDto dto);
 		Task DeleteMedicineAsync(int id);
 		Task<int> CreateMedicineAsync(CreateMedicineDto dto);

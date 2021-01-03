@@ -22,10 +22,7 @@ namespace MedicineAssistant.Application.Services
 		private readonly SignInManager<ApplicationUser> _signInManager;
 		private readonly UserManager<ApplicationUser> _userManager;
 
-		public AccountService(
-			SignInManager<ApplicationUser> signInManager
-			, UserManager<ApplicationUser> userManager
-			)
+		public AccountService(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
 		{
 			_signInManager = signInManager;
 			_userManager = userManager;
