@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MedicineAssistant.Application.ViewModel.Account
+﻿namespace MedicineAssistant.Application.ViewModel.Account
 {
 	public class AccountDto
 	{

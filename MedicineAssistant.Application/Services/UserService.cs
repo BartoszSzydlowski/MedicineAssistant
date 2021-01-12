@@ -5,15 +5,8 @@ using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Application.ViewModel.Users;
 using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Application.Services

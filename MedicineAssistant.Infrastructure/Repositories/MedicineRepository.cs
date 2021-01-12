@@ -1,10 +1,7 @@
 ﻿using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Infrastructure.Repositories
@@ -18,15 +15,10 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			_context = context;
 		}
 
-		public async Task<string> AddMedicineToUserAsync(string userId, int medicineId)
+		public async Task<string> AddMedicineToUserAsync(string userId, UserMedicine medicine)
 		{
-			var userMedicine = new UserMedicine
-			{
-				UserId = userId,
-				MedicineId = medicineId,
-				EntryDate = DateTime.Now
-			};
-			await _context.AddAsync(userMedicine);
+			medicine.UserId = userId;
+			await _context.AddAsync(medicine);
 			await _context.SaveChangesAsync();
 			return userId;
 		}
@@ -58,12 +50,6 @@ namespace MedicineAssistant.Infrastructure.Repositories
 		{
 			return _context.Medicines.Where(p => p.Name == name);
 		}
-
-		//public IQueryable<Medicine> GetMedicineByTimeSpan(TimeSpan timeSpan)
-		//{
-		//	//return _context.Medicines.Where(p => p.UseDate >= (DateTime.UtcNow + timeSpan));
-		//	return null;
-		//}
 
 		public async Task RemoveMedicineAsync(int medicineId)
 		{

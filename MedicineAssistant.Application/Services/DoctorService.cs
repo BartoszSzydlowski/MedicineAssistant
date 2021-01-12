@@ -1,15 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MedicineAssistant.Application.Interfaces;
-using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Application.ViewModel.Doctors;
 using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Application.Services

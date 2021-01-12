@@ -2,9 +2,6 @@
 using MedicineAssistant.Application.ViewModel.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Web.Controllers
@@ -21,7 +18,7 @@ namespace MedicineAssistant.Web.Controllers
 			_service = service;
 		}
 
-		[HttpGet("Find/User")]
+		[HttpGet("Find")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Get()
 		{
@@ -29,7 +26,7 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(medicines);
 		}
 
-		[HttpGet("Find/User/Id/{id}")]
+		[HttpGet("Find/Id/{id}")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Get(string id)
 		{
@@ -60,7 +57,7 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(dto);
 		}
 
-		[HttpDelete("Delete/User/{id}")]
+		[HttpDelete("Delete/{id}")]
 		public async Task<IActionResult> Delete(string id)
 		{
 			await _service.DeleteUserAsync(id);

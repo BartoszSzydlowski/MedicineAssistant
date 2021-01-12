@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MedicineAssistant.Domain.Models
 {
@@ -12,5 +10,7 @@ namespace MedicineAssistant.Domain.Models
 		public Medicine Medicine { get; set; }
 		public DateTime EntryDate { get; set; }
 		public DateTime UseDate { get; set; }
+		public string Dose { get; set; }
+		public string Frequency { get; set; }
 	}
 }

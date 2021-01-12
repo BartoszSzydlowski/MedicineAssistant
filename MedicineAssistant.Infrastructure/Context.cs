@@ -1,9 +1,6 @@
 ﻿using MedicineAssistant.Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MedicineAssistant.Infrastructure
 {
@@ -13,9 +10,8 @@ namespace MedicineAssistant.Infrastructure
 		public DbSet<UserMedicine> UserMedicine { get; set; }
 		public DbSet<Medicine> Medicines { get; set; }
 
-		public Context(DbContextOptions<Context> options) : base (options)
+		public Context(DbContextOptions<Context> options) : base(options)
 		{
-
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)

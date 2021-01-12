@@ -1,13 +1,7 @@
 ﻿using MedicineAssistant.Application.Interfaces;
-using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Application.ViewModel.Doctors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Web.Controllers
@@ -24,7 +18,7 @@ namespace MedicineAssistant.Web.Controllers
 			_doctorService = service;
 		}
 
-		[HttpGet("Find/Doctor")]
+		[HttpGet("Find")]
 		public async Task<IActionResult> Get()
 		{
 			var userId = JwtTokenInfo.GetUserIdFromToken();
@@ -32,14 +26,14 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(doctors);
 		}
 
-		[HttpGet("Find/Doctor/Id/{id}")]
+		[HttpGet("Find/Id/{id}")]
 		public async Task<IActionResult> Get(int id)
 		{
 			var doctor = await _doctorService.GetDoctorByIdAsync(id);
 			return new JsonResult(doctor);
 		}
 
-		[HttpGet("Find/Doctor/Name/{name}")]
+		[HttpGet("Find/Name/{name}")]
 		public async Task<IActionResult> Get(string name, string userId)
 		{
 			var doctor = await _doctorService.GetDoctorsBySurnameAsync(name, userId);
@@ -61,13 +55,11 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(dto.Id);
 		}
 
-		[HttpDelete("Delete/Doctor/{id}")]
+		[HttpDelete("Delete/{id}")]
 		public async Task<IActionResult> Delete(int id)
 		{
 			await _doctorService.DeleteDoctorAsync(id);
 			return Ok();
 		}
-
-
 	}
 }

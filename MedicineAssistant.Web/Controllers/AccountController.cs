@@ -1,9 +1,9 @@
 ﻿using MedicineAssistant.Application.Interfaces;
+using MedicineAssistant.Application.ViewModel.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using MedicineAssistant.Application.ViewModel.Account;
 
 namespace MedicineAssistant.Web.Controllers
 {

@@ -3,9 +3,6 @@ using MedicineAssistant.Domain.Repositories;
 using MedicineAssistant.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MedicineAssistant.Infrastructure
 {

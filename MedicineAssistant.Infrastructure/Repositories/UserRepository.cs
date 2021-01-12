@@ -1,12 +1,7 @@
 ﻿using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Infrastructure.Repositories
@@ -29,7 +24,7 @@ namespace MedicineAssistant.Infrastructure.Repositories
 
 		public async Task<string> CreateNormalUserAsync(ApplicationUser user, string password)
 		{
-			if(user != null)
+			if (user != null)
 			{
 				await _userManager.CreateAsync(user, password);
 				await _userManager.AddToRoleAsync(user, "User");
@@ -54,7 +49,7 @@ namespace MedicineAssistant.Infrastructure.Repositories
 		public async Task DeleteUserAsync(string id)
 		{
 			var user = await _userManager.FindByIdAsync(id);
-			if(user != null)
+			if (user != null)
 			{
 				_context.Remove(user);
 				await _context.SaveChangesAsync();

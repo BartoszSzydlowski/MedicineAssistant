@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MedicineAssistant.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using static MedicineAssistant.Application.Mapping.IMapFrom;
 
 namespace MedicineAssistant.Application.ViewModel.Medicines
@@ -14,6 +12,8 @@ namespace MedicineAssistant.Application.ViewModel.Medicines
 		public DateTime EntryDate { get; set; }
 		public DateTime UseDate { get; set; }
 		public string Frequency { get; set; }
+		public string UserId { get; set; }
+		public int Id { get; set; }
 
 		public void Mapping(Profile profile)
 		{

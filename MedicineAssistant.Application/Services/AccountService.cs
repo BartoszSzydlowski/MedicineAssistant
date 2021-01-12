@@ -1,14 +1,10 @@
-﻿using AutoMapper;
-using MedicineAssistant.Application.Interfaces;
+﻿using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Domain.Models;
-using MedicineAssistant.Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -28,7 +24,6 @@ namespace MedicineAssistant.Application.Services
 			_userManager = userManager;
 		}
 
-
 		public async Task<string> RegisterAsync(AccountDto model)
 		{
 			var user = await _userManager.FindByEmailAsync(model.Email);
@@ -47,7 +42,7 @@ namespace MedicineAssistant.Application.Services
 			var result = await _userManager.CreateAsync(newUser, model.Password);
 			var roleResult = await _userManager.AddToRoleAsync(newUser, "User");
 
-			if(!result.Succeeded || !roleResult.Succeeded)
+			if (!result.Succeeded || !roleResult.Succeeded)
 			{
 				return "Error registering";
 			}
@@ -91,6 +86,5 @@ namespace MedicineAssistant.Application.Services
 
 			return new JwtSecurityTokenHandler().WriteToken(token);
 		}
-
 	}
 }

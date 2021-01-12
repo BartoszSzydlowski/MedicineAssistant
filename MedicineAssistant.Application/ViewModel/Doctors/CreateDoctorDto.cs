@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
 using MedicineAssistant.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static MedicineAssistant.Application.Mapping.IMapFrom;
 
 namespace MedicineAssistant.Application.ViewModel.Doctors
 {

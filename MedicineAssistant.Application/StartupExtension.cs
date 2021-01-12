@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
 using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.Services;
-using MedicineAssistant.Domain.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace MedicineAssistant.Application
 {

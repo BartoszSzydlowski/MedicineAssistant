@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Medicines;
 using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
-using System;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace MedicineAssistant.Application.Services
 {
@@ -24,9 +21,10 @@ namespace MedicineAssistant.Application.Services
 			_mapper = mapper;
 		}
 
-		public async Task<string> AddMedicineToUserAsync(string userId, int medicineId)
+		public async Task<string> AddMedicineToUserAsync(string userId, AddMedicineToUserDto model)
 		{
-			await _medicineRepo.AddMedicineToUserAsync(userId, medicineId);
+			var mapped = _mapper.Map<UserMedicine>(model);
+			await _medicineRepo.AddMedicineToUserAsync(userId, mapped);
 			return userId;
 		}
 
@@ -61,14 +59,6 @@ namespace MedicineAssistant.Application.Services
 				.ToListAsync();
 			return item;
 		}
-
-		//public async Task<List<GetMedicineDto>> GetMedicineByTimeSpanAsync(TimeSpan timeSpan)
-		//{
-		//	var item = await _medicineRepo.GetMedicineByTimeSpan(timeSpan)
-		//		.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
-		//		.ToListAsync();
-		//	return item;
-		//}
 
 		public async Task UpdateMedicineAsync(UpdateMedicineDto dto)
 		{

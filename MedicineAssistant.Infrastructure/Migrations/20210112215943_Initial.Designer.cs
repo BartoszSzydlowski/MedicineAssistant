@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicineAssistant.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210103061438_Initial")]
+    [Migration("20210112215943_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,17 +94,17 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "609ee283-659f-4b94-a52c-e1969af79dcb",
+                            Id = "b8d2bd44-8790-45c5-86f1-95b9c859206f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15c00b6b-1340-43df-b32f-2c5024ad3cc9",
+                            ConcurrencyStamp = "efed5174-7eac-4fea-bf67-be357d5a8701",
                             Email = "bbartek311@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "bbartek311@gmail.com",
                             NormalizedUserName = "bbartek311@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE7Xks6YPV6cw+l4TmUKzIH/Q8oUHI4OBkqgwQoWHmLKWPdUIb3/K0oWdoBmKUJ4cw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKXP2bXvN2wKtLlf2ia2ySvanWoKbHwttF41bHdieY6OiINTxwV3wpFLl/ZRE7YX+A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "01d80ff9-39f0-4e3d-aa4a-a5419f0d7660",
+                            SecurityStamp = "627a5216-1f87-45ec-8d6a-ecc7672d2c0a",
                             TwoFactorEnabled = false,
                             UserName = "bbartek311@gmail.com"
                         });
@@ -143,12 +143,6 @@ namespace MedicineAssistant.Infrastructure.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Dose")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Frequency")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -165,8 +159,14 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.Property<int>("MedicineId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Dose")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EntryDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Frequency")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UseDate")
                         .HasColumnType("datetime2");
@@ -207,15 +207,15 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bf400dfa-6c49-4a1e-9238-0a41ae645ed5",
-                            ConcurrencyStamp = "895bc780-44e1-4965-a4d9-ad49d80ed998",
+                            Id = "80660f80-d78e-4887-8b6c-6074876fa347",
+                            ConcurrencyStamp = "0794693b-de97-46b6-968c-6d1721ca126f",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "50c3c77d-2334-4e01-8d69-1b739835b2f7",
-                            ConcurrencyStamp = "f159ab56-72c4-4764-a21c-39501a16b6a6",
+                            Id = "cb8e4ffb-51a9-4e79-8fbe-bd5c742fdfe2",
+                            ConcurrencyStamp = "ceb73270-3b8b-41a7-9efc-0c74f9113797",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -308,8 +308,8 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "609ee283-659f-4b94-a52c-e1969af79dcb",
-                            RoleId = "bf400dfa-6c49-4a1e-9238-0a41ae645ed5"
+                            UserId = "b8d2bd44-8790-45c5-86f1-95b9c859206f",
+                            RoleId = "80660f80-d78e-4887-8b6c-6074876fa347"
                         });
                 });
 

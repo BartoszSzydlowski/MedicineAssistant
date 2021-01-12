@@ -1,21 +1,14 @@
 ﻿using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Medicines;
-using MedicineAssistant.Domain.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MedicineAssistant.Web.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+	[Authorize]
 	public class MedicineController : ControllerBase
 	{
 		private readonly IMedicineService _service;
@@ -25,33 +18,26 @@ namespace MedicineAssistant.Web.Controllers
 			_service = service;
 		}
 
-		[HttpGet("Find/Medicine")]
+		[HttpGet("Find")]
 		public async Task<IActionResult> Get()
 		{
 			var medicines = await _service.GetAllMedicinesAsync();
 			return new JsonResult(medicines);
 		}
 
-		[HttpGet("Find/Medicine/Id/{id}")]
+		[HttpGet("Find/Id/{id}")]
 		public async Task<IActionResult> Get(int id)
 		{
 			var medicine = await _service.GetMedicineByIdAsync(id);
 			return new JsonResult(medicine);
 		}
 
-		[HttpGet("Find/Medicine/Name/{name}")]
+		[HttpGet("Find/Name/{name}")]
 		public async Task<IActionResult> Get(string name)
 		{
 			var medicines = await _service.GetMedicineByNameAsync(name);
 			return new JsonResult(medicines);
 		}
-
-		//[HttpGet("Find/Mecicine/TimeSpan/{timeSpan}")]
-		//public async Task<IActionResult> Get(TimeSpan timeSpan)
-		//{
-		//	var medicines = await _service.GetMedicineByTimeSpanAsync(timeSpan);
-		//	return new JsonResult(medicines);
-		//}
 
 		[HttpPost("Create")]
 		[Authorize(Policy = "AdminRole")]
@@ -62,11 +48,12 @@ namespace MedicineAssistant.Web.Controllers
 		}
 
 		[HttpPost("Add")]
-		public async Task<IActionResult> AddToUser(int medicineId)
+		public async Task<IActionResult> AddToUser(AddMedicineToUserDto model)
 		{
 			var userId = JwtTokenInfo.GetUserIdFromToken();
-			var medicine = await _service.AddMedicineToUserAsync(userId, medicineId);
-			return new JsonResult(medicine);
+
+			var newMedicine = await _service.AddMedicineToUserAsync(userId, model);
+			return new JsonResult(newMedicine);
 		}
 
 		[HttpPut]
@@ -77,7 +64,7 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(dto.Id);
 		}
 
-		[HttpDelete("Delete/Mecicine/{id}")]
+		[HttpDelete("Delete/{id}")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Delete(int id)
 		{
