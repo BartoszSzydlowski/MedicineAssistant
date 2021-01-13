@@ -80,7 +80,6 @@ namespace MedicineAssistant.Web.Controllers
 		}
 
 		[HttpDelete("DeleteFromUser/{id}")]
-		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> RemoveFromUser(int id)
 		{
 			await _service.DeleteMedicineFromUserAsync(id);
