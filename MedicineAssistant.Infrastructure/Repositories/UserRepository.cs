@@ -32,7 +32,7 @@ namespace MedicineAssistant.Infrastructure.Repositories
 				var userResult = await _userManager.CreateAsync(user, password);
 				var roleResult = await _userManager.AddToRoleAsync(user, "User");
 
-				if(!userResult.Succeeded || !roleResult.Succeeded)
+				if (!userResult.Succeeded || !roleResult.Succeeded)
 				{
 					return "Error registering";
 				}

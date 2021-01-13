@@ -26,7 +26,7 @@ namespace MedicineAssistant.Web.Controllers
 		}
 
 		[HttpGet("GetUserMedicines")]
-		private async Task<IActionResult> GetUserMedicines()
+		public async Task<IActionResult> GetUserMedicines()
 		{
 			var userId = JwtTokenInfo.GetUserIdFromToken();
 			var medicine = await _service.GetUserMedicines(userId);

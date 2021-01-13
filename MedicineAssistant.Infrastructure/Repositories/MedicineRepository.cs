@@ -1,6 +1,7 @@
 ﻿using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,12 +18,13 @@ namespace MedicineAssistant.Infrastructure.Repositories
 
 		public IQueryable<UserMedicine> GetUserMedicines(string userId)
 		{
-			return  _context.UserMedicine.Where(p => p.UserId == userId);
+			return _context.UserMedicine.Where(p => p.UserId == userId);
 		}
 
 		public async Task<string> AddMedicineToUserAsync(string userId, UserMedicine medicine)
 		{
 			medicine.UserId = userId;
+			medicine.EntryDate = DateTime.Now;
 			await _context.AddAsync(medicine);
 			await _context.SaveChangesAsync();
 			return userId;
