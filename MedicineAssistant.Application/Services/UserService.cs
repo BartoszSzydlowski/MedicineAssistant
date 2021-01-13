@@ -34,7 +34,7 @@ namespace MedicineAssistant.Application.Services
 
 		public async Task<string> CreateAdminUserAsync(CreateUserDto dto)
 		{
-			return await _userRepo.CreateNormalUserAsync(_mapper.Map<ApplicationUser>(dto), dto.Password);
+			return await _userRepo.CreateAdminUserAsync(_mapper.Map<ApplicationUser>(dto), dto.Password);
 		}
 
 		public async Task DeleteUserAsync(string id)

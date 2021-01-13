@@ -22,32 +22,32 @@ namespace MedicineAssistant.Web.Controllers
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Get()
 		{
-			var medicines = await _service.GetAllUsersAsync();
-			return new JsonResult(medicines);
+			var users = await _service.GetAllUsersAsync();
+			return new JsonResult(users);
 		}
 
 		[HttpGet("Find/Id/{id}")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Get(string id)
 		{
-			var medicine = await _service.GetUserByIdAsync(id);
-			return new JsonResult(medicine);
+			var user = await _service.GetUserByIdAsync(id);
+			return new JsonResult(user);
 		}
 
 		[HttpPost("CreateAdmin")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> CreateAdminUser(CreateUserDto dto)
 		{
-			var medicine = await _service.CreateAdminUserAsync(dto);
-			return new JsonResult(medicine);
+			var user = await _service.CreateAdminUserAsync(dto);
+			return new JsonResult(user);
 		}
 
 		[HttpPost("CreateUser")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> CreateNormalUser(CreateUserDto dto)
 		{
-			var medicine = await _service.CreateNormalUserAsync(dto);
-			return new JsonResult(medicine);
+			var user = await _service.CreateNormalUserAsync(dto);
+			return new JsonResult(user);
 		}
 
 		[HttpPut]

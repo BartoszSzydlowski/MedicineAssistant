@@ -1,6 +1,7 @@
 ﻿using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,9 +27,16 @@ namespace MedicineAssistant.Infrastructure.Repositories
 		{
 			if (user != null)
 			{
-				await _userManager.CreateAsync(user, password);
-				await _userManager.AddToRoleAsync(user, "User");
-				await _context.SaveChangesAsync();
+				user.Id = Guid.NewGuid().ToString();
+				user.UserName = user.Email;
+				var userResult = await _userManager.CreateAsync(user, password);
+				var roleResult = await _userManager.AddToRoleAsync(user, "User");
+
+				if(!userResult.Succeeded || !roleResult.Succeeded)
+				{
+					return "Error registering";
+				}
+
 				return user.Id;
 			}
 			return null;
@@ -38,9 +46,16 @@ namespace MedicineAssistant.Infrastructure.Repositories
 		{
 			if (user != null)
 			{
-				await _userManager.CreateAsync(user, password);
-				await _userManager.AddToRoleAsync(user, "Admin");
-				await _context.SaveChangesAsync();
+				user.Id = Guid.NewGuid().ToString();
+				user.UserName = user.Email;
+				var userResult = await _userManager.CreateAsync(user, password);
+				var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
+
+				if (!userResult.Succeeded || !roleResult.Succeeded)
+				{
+					return "Error registering";
+				}
+
 				return user.Id;
 			}
 			return null;

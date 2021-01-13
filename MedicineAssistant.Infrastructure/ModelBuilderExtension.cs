@@ -12,6 +12,7 @@ namespace MedicineAssistant.Infrastructure
 			var userRoleId = Guid.NewGuid().ToString();
 			var adminRoleId = Guid.NewGuid().ToString();
 			var defaultUserId = Guid.NewGuid().ToString();
+			var koUserId = Guid.NewGuid().ToString();
 
 			var hasher = new PasswordHasher<ApplicationUser>();
 
@@ -45,6 +46,18 @@ namespace MedicineAssistant.Infrastructure
 				}
 			);
 
+			builder.Entity<ApplicationUser>().HasData(
+				new ApplicationUser
+				{
+					Email = "karol.opolko@gmail.com",
+					PasswordHash = hasher.HashPassword(null, "test"),
+					UserName = "karol.opolko@gmail.com",
+					NormalizedEmail = "karol.opolko@gmail.com",
+					NormalizedUserName = "karol.opolko@gmail.com",
+					Id = koUserId
+				}
+			);
+
 			builder.Entity<IdentityUserRole<string>>().HasData(
 				new IdentityUserRole<string>
 				{
@@ -52,6 +65,14 @@ namespace MedicineAssistant.Infrastructure
 					UserId = defaultUserId
 				}
 			);
+
+			builder.Entity<IdentityUserRole<string>>().HasData(
+				 new IdentityUserRole<string>
+				 {
+					 RoleId = adminRoleId,
+					 UserId = koUserId
+				 }
+			 );
 		}
 	}
 }

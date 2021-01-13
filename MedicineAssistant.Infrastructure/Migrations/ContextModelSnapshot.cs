@@ -92,19 +92,35 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b8d2bd44-8790-45c5-86f1-95b9c859206f",
+                            Id = "b34facee-86f9-4564-9b93-ece2eb93cdef",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efed5174-7eac-4fea-bf67-be357d5a8701",
+                            ConcurrencyStamp = "bccdb6ee-81e0-4142-9da8-0d428bd38dfa",
                             Email = "bbartek311@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "bbartek311@gmail.com",
                             NormalizedUserName = "bbartek311@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKXP2bXvN2wKtLlf2ia2ySvanWoKbHwttF41bHdieY6OiINTxwV3wpFLl/ZRE7YX+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEaOhL01zYwNMv9PJ6N23o+xeVS5hTPEe0mLmbFSAJJL/3Fb4sEWX3fLP7jGehquYA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "627a5216-1f87-45ec-8d6a-ecc7672d2c0a",
+                            SecurityStamp = "97714811-1179-410f-b176-a37d1773e05a",
                             TwoFactorEnabled = false,
                             UserName = "bbartek311@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "35cef2f0-29ca-48c7-91cd-1d625bc95f50",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d57006a1-b29b-4cbf-aba5-8a2bc02ccb0f",
+                            Email = "karol.opolko@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "karol.opolko@gmail.com",
+                            NormalizedUserName = "karol.opolko@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM3Mupey5wIi7mmltR+ZtVoPWNKjPIYado3PAlhVItRXFP2FeftI4b7Gs9v1PDa7yA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "5279ebcf-c45c-4384-9394-ba26fcab6163",
+                            TwoFactorEnabled = false,
+                            UserName = "karol.opolko@gmail.com"
                         });
                 });
 
@@ -205,15 +221,15 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "80660f80-d78e-4887-8b6c-6074876fa347",
-                            ConcurrencyStamp = "0794693b-de97-46b6-968c-6d1721ca126f",
+                            Id = "56e22717-5bb3-4f05-b9fb-030b4aa68da2",
+                            ConcurrencyStamp = "ebee6b65-2abf-45ca-8dad-4cfd009416ca",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "cb8e4ffb-51a9-4e79-8fbe-bd5c742fdfe2",
-                            ConcurrencyStamp = "ceb73270-3b8b-41a7-9efc-0c74f9113797",
+                            Id = "828fea21-e923-4d14-826b-98144a920465",
+                            ConcurrencyStamp = "43368a30-d77a-4563-9e53-04a5cb65cd53",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -306,8 +322,13 @@ namespace MedicineAssistant.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b8d2bd44-8790-45c5-86f1-95b9c859206f",
-                            RoleId = "80660f80-d78e-4887-8b6c-6074876fa347"
+                            UserId = "b34facee-86f9-4564-9b93-ece2eb93cdef",
+                            RoleId = "56e22717-5bb3-4f05-b9fb-030b4aa68da2"
+                        },
+                        new
+                        {
+                            UserId = "35cef2f0-29ca-48c7-91cd-1d625bc95f50",
+                            RoleId = "56e22717-5bb3-4f05-b9fb-030b4aa68da2"
                         });
                 });
 
