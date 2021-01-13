@@ -22,6 +22,8 @@ namespace MedicineAssistant.Application.Interfaces
 
 		Task DeleteMedicineAsync(int id);
 
+		Task DeleteMedicineFromUserAsync(int id);
+
 		Task<int> CreateMedicineAsync(CreateMedicineDto dto);
 	}
 }

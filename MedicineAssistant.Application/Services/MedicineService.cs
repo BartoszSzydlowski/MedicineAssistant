@@ -55,6 +55,11 @@ namespace MedicineAssistant.Application.Services
 			await _medicineRepo.RemoveMedicineAsync(id);
 		}
 
+		public async Task DeleteMedicineFromUserAsync(int id)
+		{
+			await _medicineRepo.RemoveMedicineFromUserAsync(id);
+		}
+
 		public async Task<List<GetMedicineDto>> GetAllMedicinesAsync()
 		{
 			var item = await _medicineRepo.GetAllMedicines()

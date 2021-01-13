@@ -12,7 +12,6 @@ namespace MedicineAssistant.Application.ViewModel.UserMedicines
 		public DateTime UseDate { get; set; }
 		public string Frequency { get; set; }
 		public string UserId { get; set; }
-		public int MedicineId { get; set; }
 		public GetMedicineDto Medicine { get; set; }
 	}
 }

@@ -79,6 +79,15 @@ namespace MedicineAssistant.Web.Controllers
 			return new JsonResult(dto.Id);
 		}
 
+		[HttpDelete("DeleteFromUser/{id}")]
+		[Authorize(Policy = "AdminRole")]
+		public async Task<IActionResult> RemoveFromUser(int id)
+		{
+			await _service.DeleteMedicineFromUserAsync(id);
+			return Ok();
+		}
+
+
 		[HttpDelete("Delete/{id}")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Delete(int id)

@@ -64,5 +64,12 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			_context.Medicines.Remove(item);
 			await _context.SaveChangesAsync();
 		}
+
+		public async Task RemoveMedicineFromUserAsync(int medicineId)
+		{
+			var item = await _context.UserMedicine.Where(p => p.MedicineId == medicineId).SingleOrDefaultAsync();
+			_context.UserMedicine.Remove(item);
+			await _context.SaveChangesAsync();
+		}
 	}
 }

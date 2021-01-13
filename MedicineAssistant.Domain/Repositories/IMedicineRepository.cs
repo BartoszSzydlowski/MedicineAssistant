@@ -20,6 +20,8 @@ namespace MedicineAssistant.Domain.Repositories
 
 		Task RemoveMedicineAsync(int medicineId);
 
+		Task RemoveMedicineFromUserAsync(int medicineId);
+
 		Task<int> CreateMedicineAsync(Medicine medicine);
 	}
 }
