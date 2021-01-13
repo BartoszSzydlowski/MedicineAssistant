@@ -9,7 +9,7 @@ namespace MedicineAssistant.Web.Token
 	{
 		public static string GetUserIdFromToken(HttpContext httpContext)
 		{
-			var token = httpContext.Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", ""); ;
+			var token = httpContext.Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
 			var handler = new JwtSecurityTokenHandler();
 			var jsonToken = handler.ReadToken(token);
 			var tokenS = handler.ReadToken(token) as JwtSecurityToken;

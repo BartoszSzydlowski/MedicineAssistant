@@ -13,7 +13,7 @@ namespace MedicineAssistant.Application.ViewModel.Medicines
 		public DateTime UseDate { get; set; }
 		public string Frequency { get; set; }
 		public string UserId { get; set; }
-		public int Id { get; set; }
+		public int MedicineId { get; set; }
 
 		public void Mapping(Profile profile)
 		{

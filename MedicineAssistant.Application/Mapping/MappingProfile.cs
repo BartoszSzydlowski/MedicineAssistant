@@ -20,6 +20,7 @@ namespace MedicineAssistant.Application.Mapping
 			CreateMap<UpdateMedicineDto, Medicine>();
 
 			CreateMap<UserMedicine, AddMedicineToUserDto>().ReverseMap();
+			CreateMap<UserMedicine, GetMedicineDto>().ReverseMap();
 
 			CreateMap<CreateUserDto, ApplicationUser>();
 			CreateMap<ApplicationUser, GetUserDto>();
