@@ -2,7 +2,6 @@
 using MedicineAssistant.Application.ViewModel.Medicines;
 using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -14,12 +13,14 @@ namespace MedicineAssistant.Web.Controllers
 	public class MedicineController : ControllerBase
 	{
 		private readonly IMedicineService _service;
-		private readonly IHttpContextAccessor _httpContextAccessor;
+		//private readonly IHttpContextAccessor _httpContextAccessor;
 
-		public MedicineController(IMedicineService service, IHttpContextAccessor httpContextAccessor)
+		public MedicineController(IMedicineService service
+			//, IHttpContextAccessor httpContextAccessor
+			)
 		{
 			_service = service;
-			_httpContextAccessor = httpContextAccessor;
+			//_httpContextAccessor = httpContextAccessor;
 		}
 
 		[HttpGet("Find")]
