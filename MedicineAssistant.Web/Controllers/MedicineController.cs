@@ -1,6 +1,8 @@
 ﻿using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Medicines;
+using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -12,10 +14,12 @@ namespace MedicineAssistant.Web.Controllers
 	public class MedicineController : ControllerBase
 	{
 		private readonly IMedicineService _service;
+		private readonly IHttpContextAccessor _httpContextAccessor;
 
-		public MedicineController(IMedicineService service)
+		public MedicineController(IMedicineService service, IHttpContextAccessor httpContextAccessor)
 		{
 			_service = service;
+			_httpContextAccessor = httpContextAccessor;
 		}
 
 		[HttpGet("Find")]
@@ -28,7 +32,7 @@ namespace MedicineAssistant.Web.Controllers
 		[HttpGet("GetUserMedicines")]
 		public async Task<IActionResult> GetUserMedicines()
 		{
-			var userId = JwtTokenInfo.GetUserIdFromToken();
+			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
 			var medicine = await _service.GetUserMedicines(userId);
 			return new JsonResult(medicine);
 		}
@@ -58,7 +62,7 @@ namespace MedicineAssistant.Web.Controllers
 		[HttpPost("Add")]
 		public async Task<IActionResult> AddToUser(AddMedicineToUserDto model)
 		{
-			var userId = JwtTokenInfo.GetUserIdFromToken();
+			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
 
 			var newMedicine = await _service.AddMedicineToUserAsync(userId, model);
 			return new JsonResult(newMedicine);
