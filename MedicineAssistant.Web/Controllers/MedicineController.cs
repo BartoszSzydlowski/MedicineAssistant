@@ -87,7 +87,6 @@ namespace MedicineAssistant.Web.Controllers
 			return Ok();
 		}
 
-
 		[HttpDelete("Delete/{id}")]
 		[Authorize(Policy = "AdminRole")]
 		public async Task<IActionResult> Delete(int id)

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MedicineAssistant.Domain.Models;
-using System;
 using static MedicineAssistant.Application.Mapping.IMapFrom;
 
 namespace MedicineAssistant.Application.ViewModel.Medicines

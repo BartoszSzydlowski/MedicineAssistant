@@ -1,7 +1,5 @@
 ﻿using MedicineAssistant.Application.ViewModel.Medicines;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MedicineAssistant.Application.ViewModel.UserMedicines
 {
