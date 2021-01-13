@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicineAssistant.Application.ViewModel.Medicines;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,6 @@ namespace MedicineAssistant.Application.ViewModel.UserMedicines
 		public string Frequency { get; set; }
 		public string UserId { get; set; }
 		public int MedicineId { get; set; }
+		public GetMedicineDto Medicine { get; set; }
 	}
 }
