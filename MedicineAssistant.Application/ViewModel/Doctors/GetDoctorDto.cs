@@ -11,6 +11,7 @@ namespace MedicineAssistant.Application.ViewModel.Doctors
 		public string PhoneNumber { get; set; }
 		public string UserId { get; set; }
 		public ApplicationUser User { get; set; }
+		public int Id { get; set; }
 
 		public void Mapping(Profile profile)
 		{
