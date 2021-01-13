@@ -1,5 +1,6 @@
 ﻿using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Account;
+using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,7 @@ namespace MedicineAssistant.Web.Controllers
 			{
 				var tokenString = await _accountService.GenerateJsonWebToken(_config, user);
 				response = Ok(new { token = tokenString });
+				JwtTokenInfo.Token = tokenString;
 			}
 			return response;
 		}

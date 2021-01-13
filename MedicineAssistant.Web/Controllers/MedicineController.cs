@@ -32,7 +32,8 @@ namespace MedicineAssistant.Web.Controllers
 		[HttpGet("GetUserMedicines")]
 		public async Task<IActionResult> GetUserMedicines()
 		{
-			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
+			//var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
+			var userId = JwtTokenInfo.GetUserIdFromToken();
 			var medicine = await _service.GetUserMedicines(userId);
 			return new JsonResult(medicine);
 		}
@@ -62,8 +63,8 @@ namespace MedicineAssistant.Web.Controllers
 		[HttpPost("Add")]
 		public async Task<IActionResult> AddToUser(AddMedicineToUserDto model)
 		{
-			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
-
+			//var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
+			var userId = JwtTokenInfo.GetUserIdFromToken();
 			var newMedicine = await _service.AddMedicineToUserAsync(userId, model);
 			return new JsonResult(newMedicine);
 		}
