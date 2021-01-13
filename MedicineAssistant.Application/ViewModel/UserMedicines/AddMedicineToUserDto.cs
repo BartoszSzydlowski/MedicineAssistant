@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MedicineAssistant.Application.ViewModel.Medicines
+namespace MedicineAssistant.Application.ViewModel.UserMedicines
 {
 	public class AddMedicineToUserDto
 	{

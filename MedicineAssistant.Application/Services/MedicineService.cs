@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Medicines;
+using MedicineAssistant.Application.ViewModel.UserMedicines;
 using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +22,18 @@ namespace MedicineAssistant.Application.Services
 			_mapper = mapper;
 		}
 
-		public async Task<List<GetMedicineDto>> GetUserMedicines(string userId)
+		//public async Task<List<GetMedicineDto>> GetUserMedicines(string userId)
+		//{
+		//	var item = await _medicineRepo.GetUserMedicines(userId)
+		//		.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
+		//		.ToListAsync();
+		//	return item;
+		//}
+
+		public async Task<List<GetUserMedicinesDto>> GetUserMedicinesAsync(string userId)
 		{
 			var item = await _medicineRepo.GetUserMedicines(userId)
-				.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
+				.ProjectTo<GetUserMedicinesDto>(_mapper.ConfigurationProvider)
 				.ToListAsync();
 			return item;
 		}

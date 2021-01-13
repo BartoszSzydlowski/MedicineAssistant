@@ -1,5 +1,6 @@
 ﻿using MedicineAssistant.Application.Interfaces;
 using MedicineAssistant.Application.ViewModel.Medicines;
+using MedicineAssistant.Application.ViewModel.UserMedicines;
 using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +36,7 @@ namespace MedicineAssistant.Web.Controllers
 		{
 			//var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
 			var userId = JwtTokenInfo.GetUserIdFromToken();
-			var medicine = await _service.GetUserMedicines(userId);
+			var medicine = await _service.GetUserMedicinesAsync(userId);
 			return new JsonResult(medicine);
 		}
 

@@ -2,6 +2,7 @@
 using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Application.ViewModel.Doctors;
 using MedicineAssistant.Application.ViewModel.Medicines;
+using MedicineAssistant.Application.ViewModel.UserMedicines;
 using MedicineAssistant.Application.ViewModel.Users;
 using MedicineAssistant.Domain.Models;
 
@@ -21,6 +22,8 @@ namespace MedicineAssistant.Application.Mapping
 
 			CreateMap<UserMedicine, AddMedicineToUserDto>().ReverseMap();
 			CreateMap<UserMedicine, GetMedicineDto>().ReverseMap();
+			CreateMap<UserMedicine, UpdateUserMedicinesDto>().ReverseMap();
+			CreateMap<UserMedicine, GetUserMedicinesDto>().ReverseMap();
 
 			CreateMap<CreateUserDto, ApplicationUser>();
 			CreateMap<ApplicationUser, GetUserDto>();
