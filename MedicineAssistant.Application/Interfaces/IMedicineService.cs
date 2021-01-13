@@ -14,6 +14,8 @@ namespace MedicineAssistant.Application.Interfaces
 
 		Task<List<GetMedicineDto>> GetMedicineByNameAsync(string name);
 
+		Task<List<GetMedicineDto>> GetUserMedicines(string userId);
+
 		Task UpdateMedicineAsync(UpdateMedicineDto dto);
 
 		Task DeleteMedicineAsync(int id);

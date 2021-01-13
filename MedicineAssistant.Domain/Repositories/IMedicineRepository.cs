@@ -14,6 +14,8 @@ namespace MedicineAssistant.Domain.Repositories
 
 		IQueryable<Medicine> GetMedicineByName(string name);
 
+		IQueryable<UserMedicine> GetUserMedicines(string userId);
+
 		Task UpdateMedicineAsync(Medicine medicine);
 
 		Task RemoveMedicineAsync(int medicineId);

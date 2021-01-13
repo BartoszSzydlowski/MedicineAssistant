@@ -21,6 +21,14 @@ namespace MedicineAssistant.Application.Services
 			_mapper = mapper;
 		}
 
+		public async Task<List<GetMedicineDto>> GetUserMedicines(string userId)
+		{
+			var item = await _medicineRepo.GetUserMedicines(userId)
+				.ProjectTo<GetMedicineDto>(_mapper.ConfigurationProvider)
+				.ToListAsync();
+			return item;
+		}
+
 		public async Task<string> AddMedicineToUserAsync(string userId, AddMedicineToUserDto model)
 		{
 			var mapped = _mapper.Map<UserMedicine>(model);

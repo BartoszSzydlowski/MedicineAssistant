@@ -15,6 +15,11 @@ namespace MedicineAssistant.Infrastructure.Repositories
 			_context = context;
 		}
 
+		public IQueryable<UserMedicine> GetUserMedicines(string userId)
+		{
+			return  _context.UserMedicine.Where(p => p.UserId == userId);
+		}
+
 		public async Task<string> AddMedicineToUserAsync(string userId, UserMedicine medicine)
 		{
 			medicine.UserId = userId;
