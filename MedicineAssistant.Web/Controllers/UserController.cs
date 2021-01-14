@@ -51,10 +51,10 @@ namespace MedicineAssistant.Web.Controllers
 		}
 
 		[HttpPut]
-		public async Task<IActionResult> Update(UpdateUserDto dto)
+		public async Task<IActionResult> Update(UpdateUserDto model)
 		{
-			await _service.EditUserAsync(dto);
-			return new JsonResult(dto);
+			await _service.EditUserAsync(model);
+			return new JsonResult(model);
 		}
 
 		[HttpDelete("Delete/{id}")]

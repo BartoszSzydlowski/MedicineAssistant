@@ -12,23 +12,23 @@ namespace MedicineAssistant.Application.Mapping
 	{
 		public MappingProfile()
 		{
-			CreateMap<CreateDoctorDto, Doctor>();
-			CreateMap<Doctor, GetDoctorDto>();
-			CreateMap<UpdateDoctorDto, Doctor>();
+			CreateMap<CreateDoctorDto, Doctor>().ReverseMap();
+			CreateMap<Doctor, GetDoctorDto>().ReverseMap();
+			CreateMap<UpdateDoctorDto, Doctor>().ReverseMap();
 
-			CreateMap<CreateMedicineDto, Medicine>();
-			CreateMap<Medicine, GetMedicineDto>();
-			CreateMap<UpdateMedicineDto, Medicine>();
+			CreateMap<CreateMedicineDto, Medicine>().ReverseMap();
+			CreateMap<Medicine, GetMedicineDto>().ReverseMap();
+			CreateMap<UpdateMedicineDto, Medicine>().ReverseMap();
 
 			CreateMap<UserMedicine, AddMedicineToUserDto>().ReverseMap();
 			CreateMap<UserMedicine, GetMedicineDto>().ReverseMap();
 			CreateMap<UserMedicine, UpdateUserMedicinesDto>().ReverseMap();
 			CreateMap<UserMedicine, GetUserMedicinesDto>().ReverseMap();
 
-			CreateMap<CreateUserDto, ApplicationUser>();
-			CreateMap<ApplicationUser, GetUserDto>();
-			CreateMap<UpdateUserDto, ApplicationUser>();
-			CreateMap<AccountDto, ApplicationUser>();
+			CreateMap<CreateUserDto, ApplicationUser>().ReverseMap();
+			CreateMap<ApplicationUser, GetUserDto>().ReverseMap();
+			CreateMap<UpdateUserDto, ApplicationUser>().ReverseMap();
+			CreateMap<AccountDto, ApplicationUser>().ReverseMap();
 		}
 	}
 }

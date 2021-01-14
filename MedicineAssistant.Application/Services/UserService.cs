@@ -5,6 +5,7 @@ using MedicineAssistant.Application.ViewModel.Account;
 using MedicineAssistant.Application.ViewModel.Users;
 using MedicineAssistant.Domain.Models;
 using MedicineAssistant.Domain.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,11 +16,13 @@ namespace MedicineAssistant.Application.Services
 	{
 		private readonly IUserRepository _userRepo;
 		private readonly IMapper _mapper;
+		private readonly UserManager<ApplicationUser> _userManager;
 
-		public UserService(IUserRepository userRepo, IMapper mapper)
+		public UserService(IUserRepository userRepo, IMapper mapper, UserManager<ApplicationUser> userManager)
 		{
 			_userRepo = userRepo;
 			_mapper = mapper;
+			_userManager = userManager;
 		}
 
 		public async Task<bool> CheckPasswordAsync(AccountDto user, string password)
@@ -44,7 +47,13 @@ namespace MedicineAssistant.Application.Services
 
 		public async Task EditUserAsync(UpdateUserDto dto)
 		{
-			await _userRepo.EditUserAsync(_mapper.Map<ApplicationUser>(dto));
+			var user = await _userRepo.GetUserByIdAsync(dto.Id);
+			user.Email = dto.Email;
+			user.UserName = dto.Email;
+			user.NormalizedUserName = dto.Email;
+			user.NormalizedEmail = dto.Email;
+			user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, dto.Password);
+			await _userRepo.EditUserAsync(_mapper.Map<ApplicationUser>(user));
 		}
 
 		public async Task<List<GetUserDto>> GetAllUsersAsync()

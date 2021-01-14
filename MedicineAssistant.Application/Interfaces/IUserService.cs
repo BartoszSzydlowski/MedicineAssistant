@@ -17,6 +17,7 @@ namespace MedicineAssistant.Application.Interfaces
 
 		Task<GetUserDto> GetUserByEmailAsync(string email);
 
+		//Task EditUserAsync(GetUserDto dto);
 		Task EditUserAsync(UpdateUserDto dto);
 
 		Task DeleteUserAsync(string id);
