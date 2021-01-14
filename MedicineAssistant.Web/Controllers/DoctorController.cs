@@ -2,6 +2,7 @@
 using MedicineAssistant.Application.ViewModel.Doctors;
 using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -13,21 +14,21 @@ namespace MedicineAssistant.Web.Controllers
 	public class DoctorController : ControllerBase
 	{
 		private readonly IDoctorService _doctorService;
-		//private readonly IHttpContextAccessor _httpContextAccessor;
+		private readonly IHttpContextAccessor _httpContextAccessor;
 
 		public DoctorController(IDoctorService service
-			//, IHttpContextAccessor httpContextAccessor
+			, IHttpContextAccessor httpContextAccessor
 			)
 		{
 			_doctorService = service;
-			//_httpContextAccessor = httpContextAccessor;
+			_httpContextAccessor = httpContextAccessor;
 		}
 
 		[HttpGet("Find")]
 		public async Task<IActionResult> Get()
 		{
-			//var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
-			var userId = JwtTokenInfo.GetUserIdFromToken();
+			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
+			//var userId = JwtTokenInfo.GetUserIdFromToken();
 			var doctors = await _doctorService.GetAllDoctorsAsync(userId);
 			return new JsonResult(doctors);
 		}
@@ -49,8 +50,8 @@ namespace MedicineAssistant.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateDoctorDto doctorModel)
 		{
-			//var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
-			var userId = JwtTokenInfo.GetUserIdFromToken();
+			var userId = JwtTokenInfo.GetUserIdFromToken(_httpContextAccessor.HttpContext);
+			//var userId = JwtTokenInfo.GetUserIdFromToken();
 			var doctor = await _doctorService.CreateDoctorAsync(doctorModel, userId);
 			return new JsonResult(doctor);
 		}
