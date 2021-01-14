@@ -19,8 +19,8 @@ namespace MedicineAssistant.Infrastructure
 			base.OnModelCreating(builder);
 
 			builder.Entity<UserMedicine>().HasKey(key => new { key.UserId, key.MedicineId });
-			builder.Entity<UserMedicine>().HasOne(x => x.Medicine).WithMany(x => x.UserMedicines).HasForeignKey(x => x.MedicineId);
-			builder.Entity<UserMedicine>().HasOne(x => x.ApplicationUser).WithMany(x => x.UserMedicines).HasForeignKey(x => x.UserId);
+			builder.Entity<UserMedicine>().HasOne(x => x.Medicine).WithMany(x => x.UserMedicines).HasForeignKey(x => x.MedicineId).OnDelete(DeleteBehavior.Cascade);
+			builder.Entity<UserMedicine>().HasOne(x => x.ApplicationUser).WithMany(x => x.UserMedicines).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
 
 			builder.Entity<ApplicationUser>().HasMany(x => x.Doctors).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
 			//builder.Entity<ApplicationUser>().HasMany(x => x.Doctors).WithOne(x => x.User);
