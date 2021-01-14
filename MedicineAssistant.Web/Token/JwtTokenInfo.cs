@@ -21,8 +21,8 @@ namespace MedicineAssistant.Web.Token
 		{
 			var handler = new JwtSecurityTokenHandler();
 			var jsonToken = handler.ReadToken(Token);
-			var tokenS = handler.ReadToken(Token) as JwtSecurityToken;
-			var userId = tokenS.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
+			var decodedToken = handler.ReadToken(Token) as JwtSecurityToken;
+			var userId = decodedToken.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
 			return userId;
 		}
 	}
