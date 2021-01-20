@@ -19,6 +19,8 @@ namespace MedicineAssistant.Web.Token
 
 		public static string Token { get; set; }
 
+		//
+
 		public static string GetUserIdFromToken()
 		{
 			var handler = new JwtSecurityTokenHandler();
