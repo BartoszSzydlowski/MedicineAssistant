@@ -2,7 +2,6 @@
 using MedicineAssistant.Application.ViewModel.Doctors;
 using MedicineAssistant.Web.Token;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
